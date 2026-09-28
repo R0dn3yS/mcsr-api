@@ -1,0 +1,13 @@
+{
+  "name": "mcsr-api",
+  "version": "0.1.0",
+  "tasks": {
+    "test": "deno run -A src/test.ts"
+  },
+  "exports": {
+    ".": "./src/main.ts"
+  },
+  "fmt": {
+    "singleQuote": true
+  }
+}
