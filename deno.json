@@ -1,6 +1,7 @@
 {
-  "name": "mcsr-api",
+  "name": "@r0dn3ys/mcsr-api",
   "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
   "tasks": {
     "test": "deno run -A src/test.ts"
   },
