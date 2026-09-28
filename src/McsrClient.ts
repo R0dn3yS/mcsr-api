@@ -2,7 +2,7 @@ import type { ClientOptions } from './types/ClientOptions.ts';
 import { DefaultOptions } from './types/DefaultOptions.ts';
 import type { SeasonsData } from './types/SeasonsData.ts';
 import type { UserData } from './types/UserData.ts';
-import type { UserMatches } from './types/UserMatches';
+import type { UserMatches } from './types/UserMatches.ts';
 import type { UserMatchesOptions } from './types/UserMatchesOptions.ts';
 import { paramBuilder } from './util/paramBuilder.ts';
 
@@ -50,7 +50,7 @@ export class McsrClient {
     }
   }
 
-  async getUserSeasonResults(user: string) {
+  async getUserSeasonResults(user: string): Promise<SeasonsData> {
     const requestUrl = `${this.apiUrl}/users/${user}/seasons`;
 
     const resp = await fetch(requestUrl);
