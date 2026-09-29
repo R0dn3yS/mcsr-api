@@ -1,10 +1,14 @@
 import type { ClientOptions } from './types/ClientOptions.ts';
 import { DefaultOptions } from './types/DefaultOptions.ts';
+import type { MatchInfo } from './types/MatchInfo.ts';
+import type { RecentMatches } from './types/RecentMatches.ts';
+import type { RecentMatchesOptions } from './types/RecentMatchesOptions.ts';
 import type { SeasonsData } from './types/SeasonsData.ts';
 import type { UserData } from './types/UserData.ts';
 import type { UserMatches } from './types/UserMatches.ts';
 import type { UserMatchesOptions } from './types/UserMatchesOptions.ts';
 import type { VersusMatches } from './types/VersusMatches.ts';
+import type { VersusMatchesOptions } from './types/VersusMatchesOptions.ts';
 import type { VersusStats } from './types/VersusStats.ts';
 import { paramBuilder } from './util/paramBuilder.ts';
 
@@ -39,14 +43,14 @@ export class McsrClient {
 
   async getUserMatches(user: string, options?: UserMatchesOptions): Promise<UserMatches> {
     const paramString = options ? paramBuilder(options) : '';
-    const requestUrl = `${this.apiUrl}/users/${user}/matches/${paramString}`;
+    const requestUrl = `${this.apiUrl}/users/${user}/matches${paramString}`;
 
     const resp = await fetch(requestUrl);
 
     if (resp.status) {
       const matchesInfo: UserMatches = JSON.parse(await resp.text()).data;
 
-      return matchesInfo
+      return matchesInfo;
     } else {
       throw new Error(`Something went wrong`);
     }
@@ -81,8 +85,9 @@ export class McsrClient {
     }
   }
 
-  async getVersusMatches(user1: string, user2: string): Promise<VersusMatches> {
-    const requestUrl = `${this.apiUrl}/users/${user1}/versus/${user2}/matches`;
+  async getVersusMatches(user1: string, user2: string, options?: VersusMatchesOptions): Promise<VersusMatches> {
+    const paramString = options ? paramBuilder(options) : '';
+    const requestUrl = `${this.apiUrl}/users/${user1}/versus/${user2}/matches${paramString}`;
 
     const resp = await fetch(requestUrl);
 
@@ -90,6 +95,35 @@ export class McsrClient {
       const versusMatches: VersusMatches = JSON.parse(await resp.text()).data;
 
       return versusMatches;
+    } else {
+      throw new Error(`Something went wrong`);
+    }
+  }
+
+  async getRecentMatches(options?: RecentMatchesOptions): Promise<RecentMatches> {
+    const paramString = options ? paramBuilder(options) : '';
+    const requestUrl = `${this.apiUrl}/matches${paramString}`;
+
+    const resp = await fetch(requestUrl);
+
+    if (resp.status) {
+      const recentMatches: RecentMatches = JSON.parse(await resp.text()).data;
+
+      return recentMatches;
+    } else {
+      throw new Error(`Something went wrong`);
+    }
+  }
+
+  async getMatchInfo(matchId: number): Promise<MatchInfo> {
+    const requestUrl = `${this.apiUrl}/matches/${matchId}`;
+
+    const resp = await fetch(requestUrl);
+
+    if (resp.status) {
+      const matchInfo: MatchInfo = JSON.parse(await resp.text()).data;
+
+      return matchInfo;
     } else {
       throw new Error(`Something went wrong`);
     }

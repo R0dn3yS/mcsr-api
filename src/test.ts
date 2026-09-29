@@ -7,6 +7,6 @@ const Client = new McsrClient();
 //   season: 10
 // });
 
-const data = await Client.getVersusMatches('R0dn3yS', 'Aqua_Hoshino');
+const data = await Client.getMatchInfo(13759934);
 
 console.log(data);
