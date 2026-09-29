@@ -1,6 +1,7 @@
 import type { UserMatchesOptions } from '../types/UserMatchesOptions.ts';
+import type { VersusMatchesOptions } from '../types/VersusMatchesOptions.ts';
 
-export function paramBuilder(params: UserMatchesOptions): string {
+export function paramBuilder(params: UserMatchesOptions|VersusMatchesOptions): string {
   let paramString = '';
 
   for (const [key, value] of Object.entries(params)) {

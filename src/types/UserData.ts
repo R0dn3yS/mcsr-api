@@ -1,22 +1,22 @@
 import type { Achievement } from './Achievement.ts';
 
 export type UserData = {
-  uuid: string,
-  nickname: string,
-  roleType: number,
-  eloRate: number | null,
-  eloRank: number | null,
-  country: string | null,
+  uuid: string;
+  nickname: string;
+  roleType: number;
+  eloRate: number | null;
+  eloRank: number | null;
+  country: string | null;
   achievements: {
-    display: Achievement[],
-    total: Achievement[],
-  },
+    display: Achievement[];
+    total: Achievement[];
+  }
   timestamp: {
-    nextDecay: number | null,
-    firstOnline: number,
-    lastRanked: number,
-    lastOnline: number
-  },
+    nextDecay: number | null;
+    firstOnline: number;
+    lastRanked: number;
+    lastOnline: number;
+  }
   statistics: {
     season: {
       bestTime: {
@@ -59,7 +59,7 @@ export type UserData = {
         ranked: number|null;
         casual: number|null;
       }
-    },
+    }
     total: {
       bestTime: {
         ranked: number|null;
@@ -102,7 +102,7 @@ export type UserData = {
         casual: number|null;
       }
     }
-  },
+  }
   connections: {
     discord?: {
       id: string;
@@ -116,7 +116,7 @@ export type UserData = {
       id: string;
       name: string;
     }
-  },
+  }
   seasonResult: {
     last: {
       eloRate: number | null;

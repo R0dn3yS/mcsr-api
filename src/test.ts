@@ -7,6 +7,6 @@ const Client = new McsrClient();
 //   season: 10
 // });
 
-const data = await Client.getUserSeasonResults('R0dn3yS');
+const data = await Client.getVersusMatches('R0dn3yS', 'Aqua_Hoshino');
 
-console.log(data.seasonResults["12"]);
+console.log(data);

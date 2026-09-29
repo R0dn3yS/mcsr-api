@@ -4,6 +4,8 @@ import type { SeasonsData } from './types/SeasonsData.ts';
 import type { UserData } from './types/UserData.ts';
 import type { UserMatches } from './types/UserMatches.ts';
 import type { UserMatchesOptions } from './types/UserMatchesOptions.ts';
+import type { VersusMatches } from './types/VersusMatches.ts';
+import type { VersusStats } from './types/VersusStats.ts';
 import { paramBuilder } from './util/paramBuilder.ts';
 
 export class McsrClient {
@@ -59,6 +61,35 @@ export class McsrClient {
       const seasonsData: SeasonsData = JSON.parse(await resp.text()).data;
 
       return seasonsData;
+    } else {
+      throw new Error(`Something went wrong`);
+    }
+  }
+
+  async getVersusStats(user1: string, user2: string, season?: number): Promise<VersusStats> {
+    let requestUrl = `${this.apiUrl}/users/${user1}/versus/${user2}`;
+    if (season) requestUrl += `?season=${season}`;
+
+    const resp = await fetch(requestUrl);
+
+    if (resp.status === 200) {
+      const versusStats: VersusStats = JSON.parse(await resp.text()).data;
+
+      return versusStats;
+    } else {
+      throw new Error(`Something went wrong`);
+    }
+  }
+
+  async getVersusMatches(user1: string, user2: string): Promise<VersusMatches> {
+    const requestUrl = `${this.apiUrl}/users/${user1}/versus/${user2}/matches`;
+
+    const resp = await fetch(requestUrl);
+
+    if (resp.status === 200) {
+      const versusMatches: VersusMatches = JSON.parse(await resp.text()).data;
+
+      return versusMatches;
     } else {
       throw new Error(`Something went wrong`);
     }
