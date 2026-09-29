@@ -7,6 +7,8 @@ const Client = new McsrClient();
 //   season: 10
 // });
 
-const data = await Client.getLiveData();
+const data = await Client.getWeeklyRaceLeaderboard();
 
-console.log(data);
+// Deno.writeTextFileSync('./test.json', JSON.stringify(data))
+
+console.log(data.leaderboard[0]);
