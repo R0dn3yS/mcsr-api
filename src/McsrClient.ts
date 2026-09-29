@@ -1,5 +1,6 @@
 import type { ClientOptions } from './types/ClientOptions.ts';
 import { DefaultOptions } from './types/DefaultOptions.ts';
+import type { LiveData } from './types/LiveData.ts';
 import type { MatchInfo } from './types/MatchInfo.ts';
 import type { RecentMatches } from './types/RecentMatches.ts';
 import type { RecentMatchesOptions } from './types/RecentMatchesOptions.ts';
@@ -124,6 +125,20 @@ export class McsrClient {
       const matchInfo: MatchInfo = JSON.parse(await resp.text()).data;
 
       return matchInfo;
+    } else {
+      throw new Error(`Something went wrong`);
+    }
+  }
+
+  async getLiveData(): Promise<LiveData> {
+    const requestUrl = `${this.apiUrl}/live`;
+
+    const resp = await fetch(requestUrl);
+
+    if (resp.status) {
+      const liveData: LiveData = JSON.parse(await resp.text()).data;
+
+      return liveData;
     } else {
       throw new Error(`Something went wrong`);
     }

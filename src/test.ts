@@ -7,6 +7,6 @@ const Client = new McsrClient();
 //   season: 10
 // });
 
-const data = await Client.getMatchInfo(13759934);
+const data = await Client.getLiveData();
 
 console.log(data);
