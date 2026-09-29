@@ -4,15 +4,15 @@ export type UserData = {
   uuid: string;
   nickname: string;
   roleType: number;
-  eloRate: number | null;
-  eloRank: number | null;
-  country: string | null;
+  eloRate: number|null;
+  eloRank: number|null;
+  country: string|null;
   achievements: {
     display: Achievement[];
     total: Achievement[];
   }
   timestamp: {
-    nextDecay: number | null;
+    nextDecay: number|null;
     firstOnline: number;
     lastRanked: number;
     lastOnline: number;
@@ -119,12 +119,12 @@ export type UserData = {
   }
   seasonResult: {
     last: {
-      eloRate: number | null;
-      eloRank: number | null;
+      eloRate: number|null;
+      eloRank: number|null;
       phasePoint: number;
     }
-    highest: number | null;
-    lowest: number | null;
+    highest: number|null;
+    lowest: number|null;
     phases: Phases[];
     weeklyRaces: WeeklyRaces[];
   }
