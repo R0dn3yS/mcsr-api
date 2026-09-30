@@ -20,10 +20,19 @@ import type { VersusStats } from './types/VersusStats.ts';
 import type { WeeklyRaceLeaderboard } from './types/WeeklyRaceLeaderboard.ts';
 import { paramBuilder } from './util/paramBuilder.ts';
 
+/**
+ * Client for the MCSR Ranked API
+ */
 export class McsrClient {
+  /** API Key */
   private apiKey?: string|null;
+  /** URL used for reach the API */
   private apiUrl: string;
 
+  /**
+   * Create a new Client for the MCSR Api
+   * @param options Optional options for the Client
+   */
   constructor(options?: ClientOptions) {
     if (options) {
       this.apiKey = options.apiKey ? options.apiKey : null;

@@ -1,1 +1,21 @@
 export { McsrClient } from './McsrClient.ts';
+
+export type { ClientOptions } from './types/ClientOptions.ts';
+export type { EloLeaderboard } from './types/EloLeaderboard.ts';
+export type { EloLeaderboardOptions } from './types/EloLeaderboardOptions.ts';
+export type { LiveData } from './types/LiveData.ts';
+export type { MatchInfo } from './types/MatchInfo.ts';
+export type { PhaseLeaderboard } from './types/PhaseLeaderboard.ts';
+export type { PhaseLeaderboardOptions } from './types/PhaseLeaderboardOptions.ts';
+export type { RecentMatches } from './types/RecentMatches.ts';
+export type { RecentMatchesOptions } from './types/RecentMatchesOptions.ts';
+export type { RecordLeaderboard } from './types/RecordLeaderboard.ts';
+export type { RecordLeaderboardOptions } from './types/RecordLeaderboardOptions.ts';
+export type { SeasonsData } from './types/SeasonsData.ts';
+export type { UserData } from './types/UserData.ts';
+export type { UserMatches } from './types/UserMatches.ts';
+export type { UserMatchesOptions } from './types/UserMatchesOptions.ts';
+export type { VersusMatches } from './types/VersusMatches.ts';
+export type { VersusMatchesOptions } from './types/VersusMatchesOptions.ts';
+export type { VersusStats } from './types/VersusStats.ts';
+export type { WeeklyRaceLeaderboard } from './types/WeeklyRaceLeaderboard.ts';
