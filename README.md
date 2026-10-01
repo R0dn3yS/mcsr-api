@@ -2,7 +2,7 @@
 
 A lightweight, typed TypeScript client for the [MCSR Ranked API](https://api.mcsrranked.com).
 
-Built for [Deno](https://deno.com/) and published on [JSR](https://jsr.io/@r0dn3ys/mcsr-api).
+Published on [JSR](https://jsr.io/@r0dn3ys/mcsr-api).
 
 ## Installation
 
